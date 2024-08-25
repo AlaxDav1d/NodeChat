@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+     <head>
+          <meta charset="UTF-8">
+          <meta name="viewport" content="width=device-width, initial-scale=1.0">
+          <link rel="stylesheet" href="style.css">
+          <title>Chat em Node.js</title>
+     </head>
+
+<body>
+     <h1>Chat</h1>
+     <p id="info"></p>
+     <div class="tudo">
+          <div class="crescer" id="crescer"></div>
+          <div class="vaz" id="vaz">
+               <p class="eu">Eu:</p>
+               <textarea id="text"></textarea>
+          </div>
+     </div>
+     <div class="rodar"></div>
+     <div class="rodar2"></div>
+     <div class="rodar3 rodar2"></div>
+     <div class="rodar4 rodar2"></div>
+     <div class="rodar5 rodar2"></div>
+     <div class="rodar6 rodar2"></div>
+</body>
+     <script>
+          function scrollToBottom() {
+          const container = document.querySelector('.tudo'); // Seleciona o contêiner de mensagens
+          container.scrollTop = container.scrollHeight; // Define o scroll para a parte inferior do contêiner
+     }
+          /*Variaveis de conexão*/
+          const ws = new WebSocket('ws://localhost:8080');
+          /*----------------------------*/
+          /*Variaveis do Documento*/
+          const info = document.getElementById('info');
+          const vaz = document.getElementById('crescer');
+          const text = document.getElementById('text');
+          /*--------------------------------*/
+
+          ws.onopen = () =>{
+               info.innerHTML = 'Conectado ao  servidor';
+          }
+
+          text.addEventListener('keypress', (event) =>{
+               if(event.key === 'Enter'){
+                    event.preventDefault();
+                    const msg = text.value;
+                    ws.send(msg);
+                    const divNova = document.createElement('div');
+                    divNova.classList.add('divNova');
+                    divNova.innerHTML = `<p class='eu'>Eu:</p><p id='msg'>${msg}</p>`;
+                    vaz.appendChild(divNova);
+                    text.value = '';
+                    scrollToBottom();
+               }
+          })          
+          ws.onmessage = (event) =>{
+               const mensagem = event.data.split(':');
+               const user = mensagem[0];
+               const rece = mensagem[1];
+               const novaDiv = document.createElement('div');
+               novaDiv.classList.add('novaDiv');
+               novaDiv.innerHTML = `<p class='eu'>Usuario n°${user}</p><p id='msg'>${rece}</p>`;
+               vaz.appendChild(novaDiv);
+               scrollToBottom();
+          }
+
+     </script>
+</html>

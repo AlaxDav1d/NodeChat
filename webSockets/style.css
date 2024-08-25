@@ -1,0 +1,172 @@
+@keyframes animar{
+     0%{rotate: 60deg;}
+
+     100%{rotate: 360deg;}
+}
+*{
+     padding: 0;
+     margin: 0;
+     box-sizing: border-box;
+     font-family: Arial, Helvetica, sans-serif;
+}
+body{
+     background-color: #a1f4ba;
+     width: 100%;
+     padding: 2%;
+     overflow: hidden;
+     height: 100%;
+     display: flex;
+     flex-direction: column;
+     align-items: space-around;
+}
+#info{
+     color: yellow;
+     font-size: 3vh;
+     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+     text-align: center;
+}
+#msg::first-letter{
+     text-transform: capitalize;
+}
+.tudo{
+     overflow-y: scroll;
+     background-color: #a1f4babe;
+     min-height: 70vh;
+     max-height: 75vh;
+     border: 3px solid;
+     z-index: 2;
+}
+.tudo::-webkit-scrollbar{
+     background-color: transparent;
+}
+.tudo::-webkit-scrollbar-thumb{
+     background-color: #f99fa0;
+     border: 1px solid;
+     border-right: none;
+}
+.vaz{
+     background-color: transparent;
+     border: 3px dotted;
+     width: 40%;
+     margin:2.5% 5%;
+     display: flex;
+     flex-direction: column;
+     align-items: start;
+     padding: 2% ;
+}
+.divNova{
+     margin-right: 55%;
+     margin-left: 5%;
+     margin-top: 2.5%;
+     height: 15vh;
+     overflow-wrap: break-word;
+     width: 40%;
+     background-color: transparent;
+     initial-letter: capitalize;
+     border: 3px dotted;
+     padding: 0 2%;
+     font-weight: 600;
+}
+.novaDiv{
+     width: 40%;
+     margin-left: 55%;
+     margin-top: 2.5%;
+     font-weight: 600;
+     padding: 0 2%;
+     height: 10vh;
+     background-color: transparent;
+     border: 3px dotted;
+     display: flex;
+     flex-direction: column;
+     justify-self: start;
+     align-self: flex-start;
+}
+.rodar {
+     background-color: transparent;
+     height: 130vh;
+     width: 135vh;
+     border-radius: 80%;
+     position: absolute; /* Usar position: absolute ou relative dependendo da necessidade */
+     border: 13px dotted #f99fa0;
+     z-index: -4;
+     left: 65vh;
+     animation-name: animar;
+     animation-duration: 20s;
+     animation-iteration-count: infinite;
+     border-top-color: #a1f4ba;
+     animation-direction: alternate;
+ 
+     bottom: 0; /* Ajuste a posição aqui para impedir que desça */
+     top: -450px; /* Defina para 'initial' ou remova se não for necessário */
+ }
+ 
+ .rodar2 {
+     background-color: transparent;
+     height: 93vh;
+     width: 95vh;
+     border-radius: 80%;
+     position: absolute;
+     border: 15px solid #f99fa0;
+     border-top-color: transparent;
+     z-index: -1;
+     left: 32vh;
+     translate: rotate(180deg);
+     animation-name: animar;
+     animation-duration: 8s;
+     animation-iteration-count: infinite;
+     animation-direction: alternate;
+ 
+     bottom: 0; /* Ajuste a posição aqui para impedir que desça */
+     top: 250px;
+ }
+.rodar3{
+     bottom: 0;
+     top: 30px;
+     left: 150vh;
+     z-index: -1;
+     border-right-color: transparent;
+
+}
+.rodar4{
+     bottom:0;
+     top: 350px;
+     left: -10vh;
+     border: 15px dotted #f99fa0;
+     animation-duration: 10s;
+     border-left-color: transparent;
+}
+.rodar5{
+     bottom: 0;
+     top: -200px;
+     z-index: -2;
+     left: -15vh;
+     animation-duration: 9s;
+     border-bottom-color: transparent;
+}
+.rodar6{
+     bottom: 520vh;
+     left: 170vh;
+     z-index: -1;
+     border-top-color: transparent;
+     animation-duration: 7s;
+}
+.eu{
+     color: #f99fa0;
+     font-size: 3vh;
+}
+h1{
+     font-size: 5vh;
+     text-align: center;
+}
+textarea{
+     height: 15vh;
+     width: 100%;
+     padding: 2%;
+     overflow: hidden;
+     background-color: transparent;
+     font-weight: 600;
+     border: 2px solid;
+     outline: none;
+     resize: none;
+     
+}
